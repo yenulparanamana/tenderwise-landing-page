@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@import "./styles/effects.css";
+@import "./styles/components.css";
+
+/* TenderWise brand colours – usable as Tailwind classes, e.g. bg-navy, text-electric */
+@theme {
+  --color-navy: #0f1b3d;
+  --color-navy-deep: #0a1330;
+  --color-navy-light: #16244f;
+  --color-navy-card: #121f45;
+  --color-electric: #0088ff;
+  --color-electric-light: #4db2ff;
+
+  /* Eligibility status colours (used in the dashboard preview) */
+  --color-status-met: #34d399;
+  --color-status-notmet: #f87171;
+  --color-status-missing: #fbbf24;
+  --color-status-review: #a78bfa;
+
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem; /* keeps section titles visible under the fixed navbar */
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-navy-deep);
+    color: #ffffff;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Clear keyboard focus outline for accessibility */
+  :focus-visible {
+    outline: 2px solid var(--color-electric-light);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

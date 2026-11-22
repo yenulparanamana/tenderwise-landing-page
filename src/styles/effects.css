@@ -1,0 +1,170 @@
+/*
+  effects.css
+  Special lighting effects that are easier to write in plain CSS than in Tailwind:
+  the blue aurora background, the central light beam, glass panels and glowing borders.
+*/
+
+/* ---------- Page background ---------- */
+.aurora-bg {
+  position: relative;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 136, 255, 0.35), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 15% 30%, rgba(0, 136, 255, 0.08), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 85% 40%, rgba(77, 178, 255, 0.07), transparent 70%),
+    linear-gradient(180deg, #0f1b3d 0%, #0a1330 60%, #081028 100%);
+  overflow: hidden;
+}
+
+/* Subtle grid texture behind the hero */
+.grid-texture {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%);
+  pointer-events: none;
+}
+
+/* ---------- Central light beam (like the reference) ---------- */
+.light-beam {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  width: 140px;
+  height: 820px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    180deg,
+    rgba(160, 215, 255, 0.95) 0%,
+    rgba(0, 136, 255, 0.55) 35%,
+    rgba(0, 136, 255, 0.12) 75%,
+    transparent 100%
+  );
+  filter: blur(38px);
+  pointer-events: none;
+  animation: beam-pulse 6s ease-in-out infinite;
+}
+
+.light-beam-core {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  width: 6px;
+  height: 640px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #ffffff 0%, rgba(77, 178, 255, 0.8) 40%, transparent 100%);
+  filter: blur(3px);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* Wide glow where the beam "lands" behind the dashboard preview */
+.light-pool {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: min(1100px, 95%);
+  height: 260px;
+  transform: translate(-50%, -45%);
+  background: radial-gradient(ellipse at center, rgba(0, 136, 255, 0.55), transparent 70%);
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+@keyframes beam-pulse {
+  0%,
+  100% {
+    opacity: 0.85;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ---------- Glass panels ---------- */
+.glass {
+  background: rgba(18, 31, 69, 0.55);
+  border: 1px solid rgba(120, 170, 255, 0.18);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-strong {
+  background: rgba(10, 19, 48, 0.82);
+  border: 1px solid rgba(120, 170, 255, 0.22);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ---------- Glowing border (dashboard preview, highlighted cards) ---------- */
+.glow-border {
+  border: 1px solid rgba(77, 178, 255, 0.55);
+  box-shadow:
+    0 0 0 1px rgba(0, 136, 255, 0.15),
+    0 0 40px rgba(0, 136, 255, 0.35),
+    0 30px 80px rgba(0, 0, 0, 0.55);
+}
+
+.glow-soft {
+  box-shadow: 0 0 30px rgba(0, 136, 255, 0.18);
+}
+
+/* Primary button glow */
+.btn-glow {
+  box-shadow:
+    0 0 0 1px rgba(77, 178, 255, 0.4),
+    0 8px 28px rgba(0, 136, 255, 0.45);
+}
+
+.btn-glow:hover {
+  box-shadow:
+    0 0 0 1px rgba(77, 178, 255, 0.6),
+    0 10px 36px rgba(0, 136, 255, 0.6);
+}
+
+/* Gradient text for headline accents */
+.text-gradient {
+  background: linear-gradient(90deg, #ffffff 0%, #9fd2ff 55%, #4db2ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Entrance animation ---------- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fade-up 0.8s ease-out forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.1s;
+}
+.delay-2 {
+  animation-delay: 0.25s;
+}
+.delay-3 {
+  animation-delay: 0.4s;
+}
+.delay-4 {
+  animation-delay: 0.6s;
+}
+
+@keyframes fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  .light-beam,
+  .fade-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,91 @@
+/*
+  components.css
+  Small reusable styles shared by several components.
+  Most layout styling lives in Tailwind classes inside the components.
+*/
+
+/* Section wrapper spacing */
+.section {
+  position: relative;
+  padding: 4.5rem 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 5rem 2rem;
+  }
+}
+
+/* Small pill label above section headings */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.95rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #cfe6ff;
+  background: rgba(0, 136, 255, 0.1);
+  border: 1px solid rgba(77, 178, 255, 0.3);
+}
+
+/* Cards used in Problem, Features and How-it-works sections */
+.card {
+  border-radius: 1.25rem;
+  background: linear-gradient(180deg, rgba(22, 36, 79, 0.65), rgba(14, 25, 58, 0.65));
+  border: 1px solid rgba(120, 170, 255, 0.14);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(77, 178, 255, 0.45);
+  box-shadow: 0 0 30px rgba(0, 136, 255, 0.18);
+}
+
+/* Icon tile inside cards */
+.icon-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.9rem;
+  color: #9fd2ff;
+  background: rgba(0, 136, 255, 0.14);
+  border: 1px solid rgba(77, 178, 255, 0.3);
+}
+
+/* Form inputs (waitlist) */
+.input {
+  width: 100%;
+  border-radius: 0.85rem;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  color: #ffffff;
+  background: rgba(10, 19, 48, 0.7);
+  border: 1px solid rgba(120, 170, 255, 0.25);
+  transition: border-color 0.2s ease;
+}
+
+.input::placeholder {
+  color: #8ea3c7;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #4db2ff;
+  box-shadow: 0 0 0 3px rgba(0, 136, 255, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card:hover {
+    transition: none;
+    transform: none;
+  }
+}

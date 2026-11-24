@@ -116,7 +116,7 @@ function DashboardPreview() {
       {/* Top bar */}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-6">
-          <Logo size={26} textClassName="text-lg" />
+          <Logo size={26} />
           <div className="hidden rounded-full border border-white/10 bg-white/5 p-1 lg:flex" aria-hidden="true">
             {TABS.map((tab, i) => (
               <span

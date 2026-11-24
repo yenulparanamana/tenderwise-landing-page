@@ -19,8 +19,8 @@ function Hero() {
           id="hero-title"
           className="fade-up delay-1 mt-7 text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-6xl md:text-7xl"
         >
-          Know if you qualify
-          <span className="text-gradient block">before you bid</span>
+          Know  if you QUALIFY
+          <span className="text-gradient block">before you BID</span>
         </h1>
 
         <p className="fade-up delay-2 mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">

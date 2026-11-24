@@ -23,7 +23,7 @@ function Navbar() {
         className="glass mx-auto flex max-w-5xl items-center justify-between rounded-full py-2.5 pl-5 pr-2.5"
       >
         <a href="#top" aria-label="TenderWise – back to top" onClick={closeMenu}>
-          <Logo size={30} />
+         <Logo className="h-[30px]" />
         </a>
 
         {/* Desktop links */}
